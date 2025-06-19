@@ -46,7 +46,7 @@ export default defineConfig({
         baseURL: process.env.API_BASE_URL || 'http://localhost:3000/api',
         extraHTTPHeaders: {
           Accept: 'application/json',
-          ...(process.env.API_DASE_KEY && { 'x-api-key': process.env.API_DASE_KEY }),
+          ...(process.env.API_BASE_KEY && { 'x-api-key': process.env.API_BASE_KEY }),
         },
       },
     },
