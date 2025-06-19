@@ -1,14 +1,17 @@
-import { test, expect } from '../../fixtures/user-fixture';
+import { test, expect } from '@playwright/test';
+import { ApiHelpers } from '../../utils/apiHelpers';
+import { apiData } from '../../testdata/apiData';
 
-test.describe('API Tests', () => {
-  test('should get user data', async ({ apiClient }) => {
-    const user = await apiClient.getUser(1);
-    expect(user).toHaveProperty('id', 1);
-  });
-
-  test('should create user', async ({ apiClient }) => {
-    const newUser = { name: 'Test User', email: 'test@example.com' };
-    const response = await apiClient.createUser(newUser);
-    expect(response).toHaveProperty('name', 'Test User');
+test.describe('ReqRes.in API Tests @api', () => {
+  test('Verify user can register accounts via POST /api/users', async ({ request }) => {
+    const registerData = apiData.registerData;
+    const response = await ApiHelpers.registerUser(request, registerData);
+    await ApiHelpers.verifyStatusCode(response, 201);
+    const registeredUserResponse = await response.json();
+    expect(registeredUserResponse).toHaveProperty('firstName', registerData.firstName);
+    expect(registeredUserResponse).toHaveProperty('lastName', registerData.lastName);
+    expect(registeredUserResponse).toHaveProperty('gender', registerData.gender);
+    expect(registeredUserResponse).toHaveProperty('birthDay', registerData.birthDay);
+    expect(registeredUserResponse).toHaveProperty('id');
   });
 });
