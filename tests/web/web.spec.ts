@@ -17,6 +17,10 @@ test.describe('Web Tests @web', () => {
     await homePage.navigateToHomePage();
   });
 
+  test.afterEach(async ({ page }) => {
+    await page.context().close();
+  });
+
   test('Verify user is able to create account', async () => {
     const uniqueEmail = WebHelpers.generateUniqueEmail();
     const userName = webData.signup.validName;

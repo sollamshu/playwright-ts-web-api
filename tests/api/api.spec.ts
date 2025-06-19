@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { ApiHelpers } from '../../utils/apiHelpers';
 import { apiData } from '../../testdata/apiData';
 
-test.describe('ReqRes.in API Tests @api', () => {
+test.describe('API Tests @api', () => {
   test('Verify user can register accounts via POST /api/users', async ({ request }) => {
     const registerData = apiData.registerData;
     const response = await ApiHelpers.registerUser(request, registerData);
