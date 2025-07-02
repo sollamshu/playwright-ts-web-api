@@ -9,20 +9,20 @@ export class HomePage extends BasePage {
 
   async navigateToHomePage(): Promise<void> {
     await this.navigate('/');
-    await this.verifyPageTitle('Automation Exercise');
+    await this.verifyPageTitle('Home - Execute Automation Employee App');
   }
 
-  async clickSignupLogin(): Promise<void> {
-    await this.clickSafely(HomeLocators.SIGNUP_LOGIN_LINK);
-    await this.page.waitForURL('**/login');
+  async clickLogin(): Promise<void> {
+    await this.clickSafely(HomeLocators.header.LOGIN_LINK);
+    await this.page.waitForURL('**/Login');
   }
 
   async verifyUserIsLoggedIn(name: string) {
-    await this.verifyElementVisible(HomeLocators.LOGGED_IN_USER_TEXT);
+    await this.verifyElementVisible(HomeLocators.loggedInUser.LOGGED_IN_USER_TEXT);
 
     const extractedLoggedInUserText = await this.page
-      .locator(HomeLocators.LOGGED_IN_USER_TEXT)
+      .locator(HomeLocators.loggedInUser.LOGGED_IN_USER_TEXT)
       .innerText();
-    expect(extractedLoggedInUserText).toContain(`Logged in as ${name}`);
+    expect(extractedLoggedInUserText).toContain(`Hello ${name}!`);
   }
 }

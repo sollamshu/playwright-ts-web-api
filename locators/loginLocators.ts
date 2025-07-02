@@ -1,5 +1,7 @@
-export class LoginLocators {
-  static readonly NAME_INPUT = '//input[contains(@data-qa, "signup-name")]';
-  static readonly EMAIL_INPUT = '//input[contains(@data-qa, "signup-email")]';
-  static readonly SIGNUP_BUTTON = '//button[contains(@data-qa, "signup-button")]';
-}
+export const LoginLocators = {
+  signIn: {
+    USER_NAME_INPUT: '#UserName',
+    PASSWORD_INPUT: '#Password',
+    LOG_IN_BUTTON: '#loginIn',
+  },
+};

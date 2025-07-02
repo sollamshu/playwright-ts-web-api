@@ -7,10 +7,9 @@ export class LoginPage extends BasePage {
     super(page);
   }
 
-  async createNewUser(userName: string, uniqueEmail: string): Promise<void> {
-    await this.fillSafely(LoginLocators.NAME_INPUT, userName);
-    await this.fillSafely(LoginLocators.EMAIL_INPUT, uniqueEmail);
-    await this.clickSafely(LoginLocators.SIGNUP_BUTTON);
-    await this.page.waitForURL('**/signup');
+  async signIn(userName: string, password: string): Promise<void> {
+    await this.fillSafely(LoginLocators.signIn.USER_NAME_INPUT, userName);
+    await this.fillSafely(LoginLocators.signIn.PASSWORD_INPUT, password);
+    await this.clickSafely(LoginLocators.signIn.LOG_IN_BUTTON);
   }
 }

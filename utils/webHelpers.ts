@@ -3,7 +3,7 @@ import { Page } from '@playwright/test';
 export class WebHelpers {
   static generateUniqueEmail(): string {
     const timestamp = new Date().getTime();
-    return `testuser_${timestamp}@example.com`;
+    return `test_user${timestamp}@example.com`;
   }
 
   static async waitForElementDetachment(
