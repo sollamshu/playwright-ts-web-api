@@ -24,6 +24,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      testMatch: /.*web.spec.ts/,
       use: {
         ...devices['Desktop Chrome'],
         deviceScaleFactor: undefined,
