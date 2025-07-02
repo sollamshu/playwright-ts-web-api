@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../../pages/HomePage';
 import { LoginPage } from '../../pages/LoginPage';
-import { WebHelpers } from '../../utils/webHelpers';
 import { webData } from '../../testdata/webData';
 
 test.describe('Web Tests @web', () => {
