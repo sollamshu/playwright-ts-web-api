@@ -7,9 +7,14 @@ export class LoginPage extends BasePage {
     super(page);
   }
 
+  async navigateToHomePage(): Promise<void> {
+    await this.navigate('/');
+    await this.verifyPageTitle('Swag Labs');
+  }
+
   async signIn(userName: string, password: string): Promise<void> {
-    await this.fillSafely(LoginLocators.signIn.USER_NAME_INPUT, userName);
+    await this.fillSafely(LoginLocators.signIn.USERNAME_INPUT, userName);
     await this.fillSafely(LoginLocators.signIn.PASSWORD_INPUT, password);
-    await this.clickSafely(LoginLocators.signIn.LOG_IN_BUTTON);
+    await this.clickSafely(LoginLocators.signIn.LOGIN_BUTTON);
   }
 }

@@ -16,7 +16,7 @@ export default defineConfig({
   },
   use: {
     trace: 'on-first-retry',
-    baseURL: process.env.WEB_BASE_URL || 'http://localhost',
+    baseURL: process.env.WEB_BASE_URL || '',
     headless: true,
     screenshot: 'only-on-failure',
     video: 'on-first-retry',
@@ -24,7 +24,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: /.*.spec.ts/,
+      testMatch: '**/web/**/*.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         deviceScaleFactor: undefined,
@@ -42,9 +42,9 @@ export default defineConfig({
     },
     {
       name: 'api',
-      testMatch: /.*.spec.ts/,
+      testMatch: '**/api/**/*.spec.ts',
       use: {
-        baseURL: process.env.API_BASE_URL || 'http://localhost:3000/api',
+        baseURL: process.env.API_BASE_URL || '',
         extraHTTPHeaders: {
           Accept: 'application/json',
           ...(process.env.API_BASE_KEY && { 'x-api-key': process.env.API_BASE_KEY }),

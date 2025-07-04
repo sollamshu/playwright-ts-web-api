@@ -1,6 +1,6 @@
 export const webData = {
   signIn: {
-    validUsername: 'sollamshu',
-    password: 'Qwerty123!',
+    username: 'standard_user',
+    password: 'secret_sauce',
   },
 };
