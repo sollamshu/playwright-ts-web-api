@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { ApiHelpers } from '../../utils/apiHelpers';
+import { ApiHelpers } from '../../utils/ApiHelpers';
 import { apiData } from '../../testdata/apiData';
 
 test.describe('API Tests @api', () => {

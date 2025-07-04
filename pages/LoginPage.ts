@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { LoginLocators } from '../locators/loginLocators';
+import { LoginLocators } from '../locators/LoginLocators';
 
 export class LoginPage extends BasePage {
   constructor(page: Page) {

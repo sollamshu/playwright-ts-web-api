@@ -24,7 +24,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: /.*web.spec.ts/,
+      testMatch: /.*.spec.ts/,
       use: {
         ...devices['Desktop Chrome'],
         deviceScaleFactor: undefined,
@@ -42,7 +42,7 @@ export default defineConfig({
     },
     {
       name: 'api',
-      testMatch: /.*api.spec.ts/,
+      testMatch: /.*.spec.ts/,
       use: {
         baseURL: process.env.API_BASE_URL || 'http://localhost:3000/api',
         extraHTTPHeaders: {

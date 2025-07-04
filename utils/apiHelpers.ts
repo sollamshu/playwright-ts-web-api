@@ -1,5 +1,5 @@
 import { APIRequestContext, APIResponse, expect } from '@playwright/test';
-import { ApiLocators } from '../locators/apiLocators';
+import { ApiLocators } from '../locators/ApiLocators';
 
 export class ApiHelpers {
   static async registerUser(request: APIRequestContext, registerData: any): Promise<any> {

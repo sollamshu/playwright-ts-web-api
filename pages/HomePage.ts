@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { HomeLocators } from '../locators/homeLocators';
+import { HomeLocators } from '../locators/HomeLocators';
 
 export class HomePage extends BasePage {
   constructor(page: Page) {
